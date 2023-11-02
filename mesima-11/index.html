@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        #result
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+
+        #result div
+        {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #result div span 
+        {
+            margin: 10px 0 0 0;
+        }
+    </style>
+    
+    <script>
+       
+        function chunk(array, size) 
+        {
+            let result = [];
+            for (let i = 0; i < array.length; i += size) {
+                result.push(array.slice(i, i + size)); // slice(0, 2) | slice(2, 4) 
+            }
+            console.log(result);
+            return result;
+        }
+        
+        function compact(array)
+        {
+            var newArray = [];
+            for (let i = 0; i < array.length; i++) {
+                const element = array[i];
+                if (element) 
+                {
+                    newArray.push(element);
+                } 
+            }
+            console.log(newArray);
+        }
+
+        function drop(array, start)
+        {
+            var newArray = array.slice(start); // slice(0, 2) | slice(2, 4) 
+            console.log(newArray);
+            return newArray;
+        }
+        
+        var array1 = Array('a', 'b', 'c', 'd', 'e');
+        var array2 = Array('a', false, null, 0, '', undefined, 2, NaN);
+        var array3 = Array('a', 'b', 'c', 'd');
+
+    </script>
+</head>
+<body>
+    
+    <div id="result">
+        <div>
+            <span>Fonction 1 :</span>
+            <span id="fonction1"><button onclick="chunk(array1, 2);">Function 1</button></span>
+        </div>
+        <div>
+            <span>Fonction 2 :</span>
+            <span id="fonction2"><button onclick="compact(array2);">Function 2</button></span>
+        </div>
+        <div>
+            <span>Fonction 3 :</span>
+            <span id="fonction3"><button onclick="drop(array3, 2);">Function 3</button></span>
+        </div>
+    </div>
+
+</body>
+</html>
