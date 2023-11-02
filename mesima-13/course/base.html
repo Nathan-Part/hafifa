@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getDataFromServer(number) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if(number == 1)
+                {
+                    const data = 'Données récupérées depuis le serveur'; // Données simulées   
+                    // Simulons une opération réussie
+                    resolve(data); // Résolution de la Promise avec les données
+                }
+                else
+                {
+                    // Simulons une opération en échec
+                    reject(new Error('Erreur lors de la récupération des données : ')); // Rejet de la Promise avec une erreur
+                }
+            }, 2000); // Attendre 2 secondes (simulant une opération asynchrone)
+        });
+        }
+
+        // Utilisation de la Promise
+        console.log('Avant la récupération des données');
+
+        getDataFromServer(1)
+        .then((data) => {
+            console.log('Données récupérées avec succès:', data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+
+        console.log('Après la récupération des données');
+    </script>
+</body>
+</html>

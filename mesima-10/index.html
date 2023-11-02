@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *
+        {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        table 
+        {
+            border: 1px solid #EEE;
+            text-align: left;
+        }
+        
+        table caption 
+        {
+            padding: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        table th 
+        {
+            border: 1px solid #DDD;
+            background-color: #545353;
+            padding: 15px;
+            color: white;
+        }
+
+        table td 
+        {
+            text-align: center;
+            background-color: #DDD;
+            padding: 15px;
+        }
+
+        .cards
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+
+        .card
+        {            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 20%;
+            padding: 10px;
+            border-radius: 14px;
+            box-shadow: 2px 3px 8px 3px rgba(0,0,0,0.15);
+            margin: 10px;
+            word-break: break-word;
+        }
+        
+        .card div
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .card span
+        {
+            padding: 10px;
+        }
+
+        #form
+        {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: end;
+        }
+        
+        #search, #select
+        {
+            margin-right: 12px;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="data.js"></script>
+
+</head> 
+<body>
+    <div id="form">
+        <form>
+            <label for="search">Search</label>
+            <div>
+                <input type="text" id="search" oninput="filterCard()">
+                <select id="select">
+                    <option value="age">age</option>
+                    <option value="name">name</option>
+                    <option value="admin">admin</option>
+                    <option value="grades">grades</option>
+                    <option value="address">address</option>
+                </select>
+            </div>
+        </form>
+        <button onclick="agg()" id="agg">All Grades Greater Than</button>
+        <button onclick="sgg()" id="sgg">Some Grades Greater Than</button>
+        <button onclick="arrayFilter()" id="arrayFilter">Array Filter and Manipulation</button>
+    </div>
+    
+    <div id="cards" class="cards">
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+/* Global */
+
+body
+{
+    margin: 0;
+    height: 100vh;
+}
+
+a 
+{
+    text-decoration: none;
+}
+
+
+/* header */
+.header
+{   
+    background-color: #ffffff;
+    display: flex; 
+    flex-direction: row;
+    justify-content: space-evenly;   
+    align-items: center;
+    height: 10vh;
+}
+
+.logo 
+{
+    height: 90px;
+}
+.nav-bar li 
+{
+    display: inline-block; 
+} 
+
+.nav-bar li a
+{   
+    color: #030200;
+    font-weight:bold;
+    text-decoration: none;
+    padding: 5px 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 15px;
+    position: relative; right:40px;  
+}        
+
+.nav-bar li a:hover
+{   color: white;
+    font-weight: bold;
+    border: 3px solid #030200;
+    background-color: #030200; 
+}
+
+span.extend {display:none;}
+
+.nav-bar li a:hover span.extend 
+{text-transform: none; 
+ display: inline; 
+ position: relative; 
+} 
+
+/* main */
+
+main 
+{
+    height: 70vh;
+    background-color: #e4e0e0;
+}
+
+.first-main
+{
+    background-image: url('../img/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.content-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 40%;
+    margin: auto;
+    height: 100%;
+}
+
+.btn
+{ 
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px; 
+    border: 2px solid #636363;
+    padding: 10px 30px;  
+    height: 50px;
+    background-color: transparent;
+    color: #636363;
+    text-decoration : none;
+    align-self: center;
+    display: flex;
+    align-items: center;
+}
+
+.btn:hover 
+{
+    box-shadow: 0 -1px 4px #FFF, 0 -2px 10px #d75927, 0 -10px 20px #A70000, 0 8px 40px #F00;
+    background-color: #FFFBF1;
+    color: #A70000;
+    border-color: white;
+    transition: 0.4s;
+}
+
+/* content shop page */
+
+.content-vine
+{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 50px;
+    flex-wrap: wrap;
+}
+
+.block-vine
+{
+    background-color: #FFF;
+    padding: 10px;
+    border-radius: 14px;
+    box-shadow: 2px 3px 8px 3px rgba(0,0,0,0.15);
+    width: 20%;
+    margin: 10px 0;
+}
+
+.img-vine
+{
+    height: 200px;
+}
+
+hr
+{
+    color: #FAFAFA;
+}
+
+.see-btn 
+{
+    display: flex;
+    justify-content: space-between;
+}
+
+.see-btn a
+{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px; 
+    display: inline-block; 
+    padding: 10px 30px;  
+    background: #246CFF;
+    background: linear-gradient(to right, #246CFF 0%, #1C6EA4 50%, #01F4FF 100%);
+    color: #ffffff;
+    text-decoration : none;
+    font-size: 13px;
+}
+
+.see-btn span 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    align-self: center;
+    font-weight: bold;
+}
+
+/* page of article */
+
+.content-article
+{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 0 100px 0 100px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.block-shop
+{
+    background-color: white;
+    padding: 20px;
+    border-radius: 7px;
+    text-align: center;
+    height: 260px;
+}
+
+.block-shop-2
+{
+    margin-left: 20px;
+}
+
+.price
+{
+    position: relative;
+    left: 32px;
+    bottom: 30px;
+    background-color: rgb(0, 128, 255);
+    color: #FFF;
+    transform: skew(-10deg, 0deg);
+}
+
+.buy-btn
+{
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px; 
+    display: inline-block; 
+    padding: 10px 30px;  
+    background: #246CFF;
+    background: linear-gradient(to right, #246CFF 0%, #1C6EA4 50%, #01F4FF 100%);
+    color: #ffffff;
+    text-decoration : none;
+    font-size: 13px;
+}
+
+/* FAQ */
+
+.block-question
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    margin: auto;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.block-question div 
+{
+    width: 100%;
+    background-color: #FFF;
+    padding: 0px 15px 15px 15px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.block-question div p 
+{
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.block-question div :nth-child(1) 
+{
+    font-weight: bold;
+}
+
+.block-question div .answer
+{
+    display: none;
+}
+
+.block-question div:hover > .answer
+{
+    display: block;
+}
+
+/* Contact */
+
+.field[name="submit"]
+{
+    background-color: #4BB3FF;
+    color: #FFFFFF;
+    border-radius: 3px;
+}
+
+.content-form
+{
+    width: 100%;
+    padding-top: 10px;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-form form
+{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+.field
+{
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #C0C0C0;
+}
+
+.my-2
+{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+/* footer */
+footer 
+{   
+    font-family: arial;
+    color: #FFFBF1;
+    font-weight: bold;
+    background-color: #2B2B2B;
+    height: 20vh;
+}
+
+li {list-style: none;} 
+
+#content-footer 
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+span.bar-ul 
+{
+    border-left: 4px solid #CECECECE; 
+    padding: 2px;
+    border-radius: 2px;
+}
+
+.ul-lf li 
+{
+    display: flex;
+    justify-content: space-between;
+}
+.ul-lf li a 
+{
+    text-decoration: none;
+    color: #f0ece3;
+    font-size: 15px;    
+}
+
+.ul-lf li a:hover 
+{
+    color: #CECECECE ;
+    transition: 0.5s;
+}
+
+.social 
+{   
+    margin: 1px; 
+    padding: 10px 10px; 
+    border-radius: 100%; 
+    color: #FFFBF1; 
+    background-color: #cececece;
+}
+
+.fa-facebook {padding: 10px 12px;
+}
+
+.social:hover {box-shadow: 0px 3px 10px rgba(0,0,0,10);}
+.fa-facebook:hover {background-color: #1c0fe6}
+.fa-twitter:hover {background-color: #10d0da;}
+.fa-snapchat-ghost:hover {background-color: #f5fc00;}
+.fa-instagram:hover
+{
+    background: #d6249f;
+    background: radial-gradient(circle at 30% 107%, #fdf497 5%, 
+                                                    #fd5949 45%,
+                                                    #d6249f 60%,
+                                                    #285AEB 90%);
+}
+.fa-youtube-square:hover {background-color: #f90606;}
+.fa-paypal:hover {background: radial-gradient(circle at 30% 107%, #21828e 5%, 
+                                    #01afc4 45%,
+                                    #71c2cb 60%,
+                                    blue 90%);}
+
+
+/*Sweat Et T-Shirt*/
+
+#liste-vetement { background-color: #F2F2F2;
+                 display: flex;
+                 flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap; }
+
+.vetement:hover {background-color: #CECECECE;
+}

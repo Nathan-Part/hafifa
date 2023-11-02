@@ -1,0 +1,70 @@
+Merge Request \ Pull Requests
+
+quand on veut travailler sur une nouvelle fonctionnalité ou changer une fonctionnalité ou corriger un bug ou changer autre chose
+nous avons besoin d'ouvrir une nouvelle branche et travailler sur elle
+quand on fini nous devons effectuer une Merge Request sur GitLab et un Pull Request sur GithHub sur la branche sur laquel nous
+avons travaillé
+
+Pull request et merge request (PR/ MR) sont en faite une demande d'integration du code sur lequel nous avons travailler a une
+autre branche 
+
+lorsque nous effectuons un merge un autre developpeur qui travail sur le projet devra l'approuver mais avant que ce même
+developpeur autorise le MR il devra le verifier, voir si ce n'attaque pas les fonctionnalité, la logique metier, et les normes du
+projet.
+Cette essai du developpeur s'apelle "Code Review" au final si le developpeur autorise le merge la même branche sur laquel vous
+avez travailler s'integrera a la branche demandée
+
+Code Review 
+
+Code Review c'est le fait de verifier une MR/ PR par un developpeur du projet (en général mais parfois cela peut egalement être 
+un developpeur d'une autre tsevet 
+
+dans tout les projet il y'a besoin de faire un Code Review pour chaque Merge Request qui s'integre avec une branche principal
+(master develop etc...
+
+Test du Merge Request avant soumission
+
+avant que vous soumettiez une MR vous devez verifier les elements suivants : 
+Le contenue du MR dois être uniquement en rapport avec le but de ce MR
+un MR le plus petit que possible, (il est conseillé de changer une chose pour chaque MR, par exemple ne pas corriger un beug ET
+rajouter une feature)
+tout les testes doivent être passé 
+l'integralité du MR, tout son code est essentiel et ne contient pas de fragment de code qui ne fonctionne pas
+
+Execution du Code Review
+
+Quand vous effectuez un Code Review faite attention au chose suivantes :
+pas d'erreur logique dans le code
+pas de beugs supplémentaire généré par le code
+le code ne casse aucune parti du projet (a moin que ce ne sois le but)
+Le code correspond a son nom et sa signification 
+La Merge Request contient seulement et uniquement du code pertinant pour lui
+Le code est lisible est compréhensible
+Le code est suffisament efficace 
+les messages de commit doivent correspondent au norme
+le code est implementez de maniere logique pensez à comment vous l'implementeriez 
+le code correspond au norme de la tsevet
+les tests couvrent tout le code et accident possible
+les verifications existante on étais modifié au cas ou le nouveau code l'exigerais  
+
+Redaction du note d'erreur Merge Request
+
+en tant que verifieur sur tout les choses que vous trouvez incorrect dans la Merge Request vous devrez ecrire un commentaire 
+approprié : 
+1. Constructif - il dois y avoir un sens derriere le commentaire, seul les commantaires significatif doivent être important
+2. Respectueux - Le commantaire dois être ecrit sur un ton respectueux et serieux
+3. Detaillé - Précisez exactement quel et le probleme est n'ecrivez pas de commentaire court et incomprehensible
+4. Unique - pas besoin de specifier le même probleme plusieurs fois même si il apparait plusieurs fois dans le code 
+
+Les avantages de Code Reviews
+garder la qualité du code du projet 
+transfert de connaissances entre les développeurs (tant du cöté du testeur que du coté du testé)
+Reduire le nombre de beugs sur le projet (quand il y'a plus de yeux sur un morceau de code les probabilité de beug basse
+
+Points supplémentaires :
+1. Chaque membres de l'equipe dois faire le Code Review même le developpeur le plus experimenté
+2. En tant que developpeur vous pouvez être soumis a des critique pendant le Code Review acceptez les, comme ça vous pourrez en
+apprendre plus (sauf si cela nuit a la qualité du code)
+3. Soyez positif en tant que verifieur de code ne minimisez pas ou n'écrivez pas de choses irrespectueuses
+4. Ne faites pas la révision de code trop rapidement vous manquerez des choses importantes mais ne dépassez pas 60 minute
+pour chaque révision de code en tant que révision.

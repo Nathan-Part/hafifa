@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .content
+        {
+            text-align: center;
+        }
+
+        #form 
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            width: 50%;
+            margin: auto;
+        }
+        
+        #form div
+        {
+            display: flex;
+            flex-direction: column;
+            margin: 10px;
+            width: 40%;
+        }
+
+        .cards
+        {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+        }
+
+        .card
+        {            
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 20%;
+            padding: 10px;
+            border-radius: 14px;
+            box-shadow: 2px 3px 8px 3px rgba(0,0,0,0.15);
+            margin: 10px;
+            word-break: break-word;
+        }
+        
+        .card div
+        {
+            display: flex;
+            justify-content: space-between;
+        }
+        .card span
+        {
+            padding: 10px;
+        }
+        
+        .submit
+        {
+            width: 60% !important;
+        }
+        
+        .delete-button
+        {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 100%;
+            border: inherit;
+            border-radius: 10px;
+            color: #ffffff;
+            background-color: #ff0000;
+            padding: 7px;
+            font-weight: bold;
+            font-size: 13px;
+            display: none;
+        }
+
+        .card:hover > .delete-button
+        {
+           display: block;
+        }
+
+        #error
+        {
+            color: red;
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+    <script>
+
+        function generateUUID() 
+        {
+            let d = new Date().getTime();
+            if (typeof performance !== 'undefined' && typeof performance.now === 'function'){
+                d += performance.now();
+            }
+            const uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                const r = (d + Math.random()*16)%16 | 0;
+                d = Math.floor(d/16);
+                return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        }
+
+        function isValideEmail(email) 
+        {
+            // Expression régulière pour vérifier si l'e-mail est valide
+            const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regexEmail.test(email);
+        }
+        
+    </script>
+</head>
+<body>
+    
+    <div class="content">
+        <span id="error"></span>
+        <form action="" id="form">
+            <div>
+                <label for="name">שם</label>
+                <input type="text" id="name">
+            </div>
+            
+            <div>
+                <label for="jobs">מקצוע</label>
+                <input type="text" id="jobs">
+            </div>
+            
+            <div>
+                <label for="email">אימייל</label>
+                <input type="email" id="email">
+            </div>
+
+            <div class="submit">
+                <input type="submit" onclick="addCart()" value="הירשם">
+            </div>
+
+        </form>
+        <div id="cards" class="cards">
+            
+        </div>
+    </div>
+
+    <script>
+        
+        document.getElementById('form').addEventListener('submit', function(e)
+        {
+            e.preventDefault();
+        });
+        
+        var cards = JSON.parse(localStorage.getItem("card")) || [];
+        
+        function genererCards(cards)
+        {
+            var parent = document.querySelector(".cards");
+            for (let i = 0; i < cards.length; i++) 
+            {
+                const card = cards[i];
+                console.log(card.jobs);
+                if(card.jobs.includes("פקיד"))
+                {
+                    card.jobs = card.jobs.replace('פקיד', '');
+                };
+                
+                var name =  card.name;
+                var jobs = card.jobs;
+                var email = card.email;
+                
+                var cardsElement = document.createElement("div");
+                cardsElement.classList.add('card');
+                cardsElement.id = 'card'+i;
+                cardsElement.classList.add('card'+i);
+
+                var contentNJ = document.createElement("div");
+                var nameCards = document.createElement('span');
+                nameCards.innerText = name;
+                
+                var jobsCards = document.createElement('span');
+                    jobsCards.innerText = jobs;
+                    
+                 var emailCards = document.createElement('span');
+                    emailCards.innerText = email;
+                    
+                var deleteButton = document.createElement('button');
+                deleteButton.classList.add('delete-button');
+                deleteButton.textContent = "למחוק";
+                deleteButton.addEventListener('click', function()
+                {
+                    const index = cards.findIndex(function(element) {
+                        return element.id === card.id;
+                    });
+                    var currentCart = document.getElementById('card'+i);
+                    cards.splice(index, 1);
+                    parent.removeChild(currentCart);
+                    localStorage.setItem("card", JSON.stringify(cards));
+                });
+                
+                parent.appendChild(cardsElement);
+                cardsElement.appendChild(contentNJ);
+                contentNJ.appendChild(nameCards);
+                contentNJ.appendChild(jobsCards);
+                cardsElement.appendChild(emailCards);
+                cardsElement.appendChild(deleteButton);
+            }
+        }
+        
+        console.log(cards);        
+        genererCards(cards);
+
+        function addCart()
+        {  
+            if(document.getElementById('name').value.length > 1)
+            {
+                if(isValideEmail(document.getElementById('email').value))
+                {
+
+                    var uuid = generateUUID();
+                    var data = 
+                    {
+                        id: uuid,
+                        name: document.getElementById('name').value,
+                        jobs: document.getElementById('jobs').value,
+                        email: document.getElementById('email').value
+                    }
+                    var cards = JSON.parse(localStorage.getItem("card")) || [];
+                    cards.push(data);
+                    localStorage.setItem("card", JSON.stringify(cards));
+                    document.getElementById('cards').innerHTML = "";
+                    genererCards(cards);
+                }
+                else
+                {
+                    document.getElementById('error').innerText = "האימייל שסיפקת אינו חוקי";
+                }
+            }
+            else
+            {
+                document.getElementById('error').innerText = "השם קצר מדי, הוא צריך לפחות 2 תווים";
+            }
+        }
+      
+    </script>
+</body>
+</html>

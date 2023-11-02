@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="test">
+
+    </div>
+    <script>
+        const promises = [
+            fetch('https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'),
+            fetch('https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1'),
+            fetch('https://baconipsum.com/api/?type=all-meat&paras=2&start-with-lorem=1')
+        ];
+
+        Promise.all(promises)
+        .then(results => {
+            // Utiliser les résultats lorsque toutes les Promises sont résolues
+            results.forEach(result => 
+            {
+                result.json()
+                .then(data => {
+                    console.log(data); // Utilisez les données ici
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+            });
+        })
+        .catch(error => {
+            console.error(error);
+        });
+    </script>
+</body>
+</html>

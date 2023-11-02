@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> 
+</head>
+<body>
+    <h2 id="title">Snake Game</h2>
+    <h3 id="endgame">Game Over :(</h3>
+    
+    <main>
+        <div class="content">
+            
+            <div id="scoreboard">
+                <span class="title-scoreboard">Score : </span>
+                <br> 
+                <span id="score">0</span>
+                <span class="title-scoreboard">Best score :</span>
+                <br>
+                <span id="bestscore"></span>
+                <button style="background-color: green;" onclick="addMoney();">Add money $</button>
+            </div>
+            
+            <div id="game">
+                <canvas id="snake"></canvas>
+            </div>
+            
+            <div id="menu">
+                <form action="" id="form">
+                    <span>Money : <span id="money"></span> <span class="circle"></span></span>
+                    <div>
+                        <label for="difficulty" id="title-difficulty">Difficulty : <span id="smiley">Easy 😄</span></label>
+                        <input type="range" min="1" max="4" id="difficulty" value="1">
+                    </div>
+                    <fieldset>
+                        <legend>Size</legend>
+                        
+                        <div>
+                            <label for="width">Width</label>
+                            <input type="number" value="600" min="200" max="1500" step="100" id="width">
+                        </div>
+                        
+                        <div>
+                            <label for="height">Height</label>
+                            <input type="number" value="600" min="200" max="1500" step="100" id="height">
+                        </div>
+                    </fieldset>
+                    <div>
+                        <label for="dots">Number of the dots</label>
+                        <input type="number" id="dots" min="1" max="20" value="10">
+                    </div>
+                </form>
+                <div>
+                    <button id="play" onclick="gameLoop()">Play</button>
+                </div>
+            </div>
+
+        </div>
+        <div id="section-shop">
+            <div id="title-shop">
+                <hr>
+                <span>Shop</span>
+                <hr>
+            </div>
+            <span class="error"></span>
+            <div id="section-block">
+                <div class="block">
+                    <span>Skin Default</span>
+                    <div class="skin0">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="cost">0 <span class="circle"></span></span>
+                    <div>
+                        <button id="button1" onclick="toBuy('skin0', 0);">Buy</button>
+                    </div>
+                </div>
+                <div class="block">
+                    <span>Skin Empty rectangle</span>
+                    <div class="skin1">
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="cost">100 <span class="circle"></span></span>
+                    <div>
+                        <button id="button2" onclick="toBuy('skin1', 100);">Buy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script src="script.js"></script> 
+
+</body>
+</html>

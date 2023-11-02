@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        var count = 0;
+        var number1 = 1;
+        var number2 = 0;
+        var fibonanciValue = 0;
+        var listValue = [0];
+
+        const fibb = (n) => {
+            if (n < 1) {
+                return 0
+            }
+            if (n === 1) {
+                return 0
+            }
+            if (n === 2) {
+                return 1
+            }
+            return fibb(n - 1) + fibb(n - 2)
+        }
+        
+        function showFibonanci()
+        {
+            var value = document.getElementById('number').value;
+            
+            if(count < value - 1)
+            {
+                fibonanciValue = number1 + number2; // 1 + 0
+                number1 = number2; // number1 = 0
+                number2 = fibonanciValue; // number2 = 1
+                listValue.push(fibonanciValue);    
+                count++;
+                showFibonanci();
+            }
+
+            document.getElementById('result').innerText = listValue;
+        }
+        
+    </script>
+
+    <form action="">
+        <input type="number" id="number">
+    </form>
+    
+    <button onclick="showFibonanci()">Fibonanci</button>
+    <div id="result"></div>
+</body>
+</html>

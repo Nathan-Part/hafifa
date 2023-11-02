@@ -1,0 +1,12 @@
+{
+  "name": "mesima-14",
+  "version": "1.0.0",
+  "description": "mesima 14",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node file_generator.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

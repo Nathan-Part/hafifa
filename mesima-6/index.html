@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body
+        {
+            height: 90vh;
+        }
+
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            width: 40%;
+            justify-content: center;    
+        }
+        
+        .content
+        {
+            height: 100%;
+        }
+
+        .content-btn
+        {
+            width: 40%;
+            margin: auto;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+        #result
+        {
+            text-align: center;
+        }
+        
+    </style>
+    
+    <script>
+        function decrypt(string, number) {
+            var alphabet = Array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            
+            string = string.toLowerCase();
+            number = parseInt(number);
+            var codeDecrypt = ""
+            
+            for (let i = 0; i < string.length; i++) {
+                const element = string[i];
+                var index = alphabet.indexOf(element) + number;
+                
+                while(alphabet[index] == null)
+                {
+                    index = index - 26;
+                }
+                
+                codeDecrypt += alphabet[index];
+            }
+
+            document.getElementById('result').innerText = codeDecrypt;
+        }
+
+        function encrypt(string, number) {
+            var alphabet = Array('a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z');
+            
+            string = string.toLowerCase();
+            number = parseInt(number);
+            var codeEncrypt = ""
+
+            
+            for (let i = 0; i < string.length; i++) {
+                const element = string[i];
+                var index = alphabet.indexOf(element) - number;
+                
+                while(alphabet[index] == null)
+                {
+                    index = index + 26;
+                }
+                
+                codeEncrypt += alphabet[index];
+            }
+
+            document.getElementById('result').innerText = codeEncrypt;
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+    <div class="content">
+        <form action="">
+            
+            <label for="string">String</label>
+            <input type="text" name="string" id="string">
+            <label for="number">Number</label>
+            <input type="number" name="number" id="number">
+
+        </form>
+
+        <div class="content-btn">
+            <button onclick="encrypt(document.getElementById('string').value, document.getElementById('number').value)">Encrypt</button>
+            <button onclick="decrypt(document.getElementById('string').value, document.getElementById('number').value)">Decrypt</button>
+        </div>
+
+        <div id="result">
+
+        </div>
+
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body
+        {
+            height: 100vh;
+        }
+        
+        .content
+        {
+            height: 100%;
+            text-align: center;
+        }
+        
+        form
+        {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            justify-content: center;
+            height: 20%;
+            align-items: center;
+            margin: auto;
+        }
+
+        #rectangle
+        {
+            padding: 20px;
+            width: 20%;
+            margin: auto;
+        }
+
+    </style>
+    <script>
+
+        // Bonus
+
+        function reverse(str)
+        {
+            var arrayReverse = ""; 
+            for (let i = str.length-1; i >= 0; i--) {
+                const reverseLetter = str[i];
+                arrayReverse += reverseLetter;
+            }
+            return arrayReverse;
+        }
+
+        
+        function isPalindrom(str) {
+            var strReverse = reverse(str);
+            for (let i = 0; i < strReverse.length; i++) {
+                if(str[i] != strReverse[i])
+                {
+                    return false;   
+                }
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="content">
+        <form action="" id="form" onsubmit="isPalindrom(document.getElementById('text').value)">
+            <label for="text">מילים</label>
+            <input type="text" name="text" id="text">
+            <input type="submit" name="submit" id="submit">
+        </form>
+
+        <div id="rectangle">
+
+        </div>
+        <div id="result">
+
+        </div>
+    </div>
+    
+    <script>
+        
+        var form = document.getElementById('form');
+        form.addEventListener('submit', function(e) 
+        {     
+            e.preventDefault();
+            var value = document.getElementById('text').value;
+
+            // Bonus
+            if(isPalindrom(value))
+            {
+                document.getElementById('result').innerText = isPalindrom(value);
+            }
+            else
+            {
+                document.getElementById('result').innerText = isPalindrom(value);
+            }
+
+            // part 1 
+            var valuePalindrom = true; 
+            for (let i = value.length-1; i >= 0; i--) {
+                const letter = value[value.length - (i + 1)]; // 3 - (2 + 1) | 3 - (1 + 1) | 3 - (0 + 1)
+                const reverseLetter = value[i];
+                if(letter != reverseLetter)
+                {
+                    valuePalindrom = false;
+                }
+            }
+
+            if(valuePalindrom)
+            {
+                document.getElementById('rectangle').style.backgroundColor = "#0dff00";
+            }
+            else
+            {
+                document.getElementById('rectangle').style.backgroundColor = "#dd2222";
+            }
+        });
+
+    </script>
+</body>
+</html>

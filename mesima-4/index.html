@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        #display-date
+        {
+            font-size: 26px;
+            width: 50%;
+            color: #0011ff;
+            text-align: center;
+            border: 3px solid #0011ff;
+            border-radius: 12px;
+            width: 30%;
+            background-color: rgba(114, 123, 255, 0.10);
+        }
+
+        #display-hours
+        {
+            font-size: 26px;
+            width: 50%;
+            color: red;
+            text-align: center;
+            border: 3px solid red;
+            border-radius: 12px;
+            width: 30%;
+            background-color: rgba(255, 114, 114, 0.1);
+
+        }
+
+        .content
+        {
+            display: flex;
+            justify-content: space-evenly;                
+        }
+
+        @media screen and (max-width: 980px)
+        {    
+            .content
+            {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #display-date, #display-hours
+            {
+                margin-top: 20px;
+            }
+
+            #display-date
+            {
+                color: #08a108;
+                border: 2px solid #08a108;
+                background-color: rgba(114, 255, 130, 0.1);
+            }
+            #display-hours
+            {
+                color: #f4f409;
+                border: 2px solid #f4f409;
+                background-color: rgba(255, 255, 114, 0.1);
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <div id="display-date"></div>
+        <div id="display-hours"></div>
+    </div>
+    
+    <script>
+        function runClock() {
+            var fullDate = new Date();
+
+            var d = fullDate.getDate();
+            var m = fullDate.getMonth();
+            var y = fullDate.getFullYear();
+            if( d < 10 ){ d = '0' + d; }
+            if( m < 10 ){ m = '0' + m; }            
+            var date = d + '.' + m + '.' + y; 
+            
+            var h = fullDate.getHours();
+            var min = fullDate.getMinutes();
+            var s = fullDate.getSeconds();
+            if( h < 10 ){ h = '0' + h; }
+            if( min < 10 ){ min = '0' + min; }
+            if( s < 10 ){ s = '0' + s; }
+            var hours = h + ':' + m + ':' + s
+            
+            document.getElementById('display-date').innerText = date;
+            document.getElementById('display-hours').innerText = hours;
+
+        }
+        
+        setInterval(runClock, 1000);
+    </script>
+
+</body>
+</html>
